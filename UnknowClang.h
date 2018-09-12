@@ -74,36 +74,36 @@
     #include<unistd.h> 
   #endif
 
+  #define BasicMain(argc,argv) (int main(int argc, char* argv[]))
+  #define Main() int main(void)
+  #define Re0 return 0
+  #define endMain puts("\n--END Program--\n");Re0
+  #define Exit exit(-1) 
+
+  #define SystemPause system("printf \'Press Enter key to continue...\' &&  read TheEnterMacro")
+  #define SystemReboot() system("reboot")
+
   #define Loop(m,n)  for(int i=m;i<n;i++)
   #define Loop2(m,n,o,p) for(int i=m;i<n;i++) for(int j=o;j<p;j++)
-  #define InfiniteLoop While(1)
+  #define InfiniteLoop while(1)
   #define EOFLoop(Cha) while(Cha!=EOF)
 
   #define PrintN(Str,Num) printf("%s : %d\n",Str,Num)
-  #define PrintF(Str,Fol) printf("%s : %f\n",Str,Fol)
   #define PrintC(Str,Cha) printf("%s : \'%c\'\n",Str,Cha)
-  #define PrintSS(Str,str) printf("%s : \'%s\'\n",Str,str)
+  #define PrintF(Str,Fol) printf("%s : %f\n",Str,Fol)
   #define PrintS(str) printf("\'%s\'\n",str)
+  #define PrintSS(Str,str) printf("%s : \'%s\'\n",Str,str)
 
   #define ScanfN(Num) scanf("%d",&Num)
-  #define ScanfF(Fol) scanf("%f",&Fol)
   #define ScanfC(Cha) scanf("%c",&Cha)
+  #define ScanfF(Fol) scanf("%f",&Fol)
   #define ScanfS(str) scanf("%s",&str)
 
-  #define SystemPause system("printf \'Press Enter key to continue...\' &&  read TheEnterMacro")
-
-  #define SystemReboot() system("reboot")
 
   #define BitMoveLeftBySet(Num,BitSum) Num=Num<<BitSum
   #define BitMoveRightBySet(Num,BitSum) Num=Num>>BitSum
   #define BitMoveLeft(Num) Num=Num<<1
   #define BitMoveRight(Num) Num=Num>>1
-
-  #define BasicMain(argc,argv) (int main(int argc, char* argv[]))
-  #define Main() int main(void)
-  #define Re0 return 0
-  #define endMain(re) puts("\n--END Program--\n");Re0
-  #define Exit exit(-1) 
   
   #define SetIntArray(Sum,IntName) int IntName[Sum]
   #define SetFloatArray(Sum,FloatName) float FloatName[Sum]
