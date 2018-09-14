@@ -7,7 +7,7 @@
 #include <stdlib.h>
 #include <linux/types.h>
 
-/* SubFunction Define  */
+/* SubProgram Define  */
 void PPP
   StartParameter int a , int b EndParameter;
 
@@ -39,11 +39,15 @@ Main()
     SetNode(BB,20);
     PrintN("BB",BB.Data);
     MakePtrCharType DD[255];
-    PPP StartArgument 4 , 5 EndArgument;
+
+    PPP 
+      StartArgument 4 , 5 EndArgument;
+
     SystemPause;
+    Re0;
   EndCodeArea
 
-/* SubFunction */
+/* SubProgram */
 void PPP 
   StartParameter int a , int b EndParameter 
   StartCodeArea

@@ -76,6 +76,7 @@
 
   #define BasicMain(argc,argv) (int main(int argc, char* argv[]))
   #define Main() int main(void)
+  #define Re return
   #define Re0 return 0
   #define endMain puts("\n--END Program--\n");Re0
   #define Exit exit(-1) 

@@ -1,0 +1,10 @@
+{
+    "files.associations": {
+        "stdlib.h": "c",
+        "*.tcc": "c",
+        "deque": "c",
+        "vector": "c",
+        "system_error": "c",
+        "types.h": "c"
+    }
+}
