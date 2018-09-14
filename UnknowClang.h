@@ -4,7 +4,9 @@
   #include<stdio.h>
   #include<stdlib.h>
   #include<string.h>
- 
+  #include <stdbool.h>
+    #include<ctype.h>
+
   #ifdef ImportBasic
     #include<stdio.h>
     #include<stblib.h>
@@ -98,7 +100,7 @@
   #define ScanfN(Num) scanf("%d",&Num)
   #define ScanfC(Cha) scanf("%c",&Cha)
   #define ScanfF(Fol) scanf("%f",&Fol)
-  #define ScanfS(str) scanf("%s",&str)
+  #define ScanfS(str) scanf("%s",str)
 
 
   #define BitMoveLeftBySet(Num,BitSum) Num=Num<<BitSum
@@ -181,5 +183,33 @@
   #define SetTreeRight(Node,InPtrR) Node->RightNode=&InPtrR
   #define SetListNext(Node,NextPtr) Node->NextNode=&NextPtr
   #define SetStackNext(Node,NextPtr) Node->NextNode=&NextPtr
+
+
+  int GetTntTypeScanf(){
+    char InScanfData[50];
+    bool IsIntData = true;
+    
+    do{
+
+      printf("請輸入數值：");
+      ScanfS(InScanfData);
+
+      if(strlen(InScanfData)<9){
+        for(int i=0;i<strlen(InScanfData);i++){
+            if(InScanfData[i]>57||InScanfData[i]<48){
+              IsIntData = false;
+              printf("輸入錯誤，需輸入十進位數字而非文字\n請重新輸入：");
+              break;
+            }
+        }
+      }else{
+        IsIntData = false;
+        printf("輸入錯誤，數字輸入範圍為：-99999999~999999999\n請重新輸入：");
+      }
+
+    }while(!IsIntData);
+    
+    return atoi(InScanfData);
+  }
 
 #endif //MYMACRO

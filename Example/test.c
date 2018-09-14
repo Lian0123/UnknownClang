@@ -21,6 +21,10 @@ Main()
     SetString(10,as) assign "5";
     PrintS(as);
     
+    MakeIntType SSD;
+    GetTntTypeScanf();
+    PrintN("aa",SSD);
+
     Loop(0,9) 
       StartCodeArea
     	printf("11\n");
