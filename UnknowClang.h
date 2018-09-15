@@ -1,11 +1,12 @@
-#ifndef MYMACRO
-  #define MYMACRO 1
+#ifndef UNKONW_CLANG_H
+  #define UNKONW_CLANG_H 1
 
   #include<stdio.h>
   #include<stdlib.h>
   #include<string.h>
   #include <stdbool.h>
-    #include<ctype.h>
+  #include<iso646.h>
+  #include<ctype.h>
 
   #ifdef ImportBasic
     #include<stdio.h>
@@ -45,10 +46,6 @@
     #include<sys/types.h>
     #include<limit.h>
     #include<ctype.h>
-  #endif
-
-  #ifdef ImportLogic
-    #include<iso646.h>
   #endif
 
   #ifdef ImportChangeCode
@@ -120,6 +117,7 @@
   #define MakeCharType char
   #define MakeFLoatType float
   #define MakeDoubleType double
+  #define MakeBoolType bool
 
   #define assign =
   #define equal ==
@@ -135,6 +133,9 @@
   #define EndArgument )
   #define StartParameter (
   #define EndParameter )
+
+  #define NotArgument ()
+  #define NotParameter (void)
 
 
   typedef FILE* PtrFile;
@@ -185,31 +186,77 @@
   #define SetStackNext(Node,NextPtr) Node->NextNode=&NextPtr
 
 
-  int GetTntTypeScanf(){
-    char InScanfData[50];
-    bool IsIntData = true;
-    
-    do{
+  int GetTntTypeScanf
+    StartParameter ConstString OutputText EndParameter
+    StartCodeArea
+      MakeCharType InScanfData[50];
+      MakeBoolType IsIntData;
+      MakeIntType  GetOverFlow;
+      MakeIntType  CounterI;
 
-      printf("請輸入數值：");
-      ScanfS(InScanfData);
+      if(OutputText equal "")
+        StartCodeArea
+          OutputText assign "請數入數字" ;
+        EndCodeArea
+      
+      do
+      StartCodeArea
 
-      if(strlen(InScanfData)<9){
-        for(int i=0;i<strlen(InScanfData);i++){
-            if(InScanfData[i]>57||InScanfData[i]<48){
-              IsIntData = false;
-              printf("輸入錯誤，需輸入十進位數字而非文字\n請重新輸入：");
-              break;
-            }
-        }
-      }else{
-        IsIntData = false;
-        printf("輸入錯誤，數字輸入範圍為：-99999999~999999999\n請重新輸入：");
-      }
+        IsIntData assign true;
+        CounterI  assign 0;
 
-    }while(!IsIntData);
-    
-    return atoi(InScanfData);
-  }
+        printf("%s：",OutputText);
+        ScanfS(InScanfData);
+        
+        if(InScanfData[0] equal '-')
+          StartCodeArea
+            GetOverFlow assign strcmp(InScanfData,"-2147483648");
 
-#endif //MYMACRO
+            if(strlen(InScanfData) less_than 11)
+              StartCodeArea
+                GetOverFlow assign -1;
+              EndCodeArea
+
+            CounterI=1;
+          EndCodeArea
+
+        else
+          StartCodeArea
+            GetOverFlow assign strcmp(InScanfData,"2147483648");
+
+            if(strlen(InScanfData) less_than 10)
+              StartCodeArea
+                GetOverFlow assign -1;
+              EndCodeArea
+
+          EndCodeArea
+
+        if(GetOverFlow less_than 0)
+          StartCodeArea
+            Loop(CounterI,strlen(InScanfData))
+              StartCodeArea
+
+                if(InScanfData[CounterI] greater_than 57 or InScanfData[CounterI] less_than 48)
+                  StartCodeArea
+                    IsIntData assign false;
+                    printf("輸入錯誤，需輸入十進位數字而非文字\n");
+                    break;
+                  EndCodeArea
+
+              EndCodeArea
+
+          EndCodeArea
+
+        else
+          StartCodeArea
+            IsIntData assign false;
+            printf("輸入錯誤，數字輸入範圍為：-2^%ld -1 ~ 2^%ld -1 \n",sizeof(int)*8,sizeof(int)*8);
+          EndCodeArea
+
+      EndCodeArea
+        while(!IsIntData);
+      
+      Re atoi(InScanfData);
+    EndCodeArea
+
+#endif //UNKONW_CLANG_H

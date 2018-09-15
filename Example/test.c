@@ -1,6 +1,5 @@
 #define ImportTextOpt ON
 #define ImportMath ON
-#define ImportLogic ON
 
 #include "../UnknowClang.h"
 #include <stdio.h>
@@ -21,8 +20,7 @@ Main()
     SetString(10,as) assign "5";
     PrintS(as);
     
-    MakeIntType SSD;
-    GetTntTypeScanf();
+    MakeIntType SSD = GetTntTypeScanf("");
     PrintN("aa",SSD);
 
     Loop(0,9) 

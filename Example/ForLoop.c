@@ -16,7 +16,7 @@ Main()
   StartCodeArea
     Loop(0,10)
       StartCodeArea
-        PrintS("*");
+        printf("*");
       EndCodeArea
     SystemPause;
     Re0;

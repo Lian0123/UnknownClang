@@ -14,11 +14,8 @@
  */
 Main()
   StartCodeArea
-    MakeIntType UsrNumber;
-    
-    /* 懶的防呆 */
-    printf("請輸入一個int範圍內的數字：");
-    ScanfN(UsrNumber);
+    MakeIntType UsrNumber assign GetTntTypeScanf 
+      StartArgument "請輸入一個int範圍內的數字" EndArgument;
     
     if(UsrNumber%6 equal 0)
       StartCodeArea

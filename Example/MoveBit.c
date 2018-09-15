@@ -15,7 +15,12 @@
 Main()
   StartCodeArea
     MakeIntType TestNumber assign 1;
-    Loop(0,4)
+    MakeIntType MoveSum assign 0;
+    
+    MoveSum assign GetTntTypeScanf 
+      StartArgument "請輸入位移數" EndArgument;
+
+    Loop(0,MoveSum)
       StartCodeArea
         BitMoveLeft(TestNumber);
         PrintN("位移情況",TestNumber);

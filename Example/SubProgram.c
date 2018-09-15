@@ -7,11 +7,21 @@ int PrintAdd
 int PrintSub
   StartParameter int a , int b EndParameter;
 
-/* Main Function */
+/*
+ *
+ * |--------------------------------------------
+ * | [Main] SubProgram迴圈範例
+ * |--------------------------------------------
+ * | Name    :  Main
+ * | Writer  :  Lian0123
+ * | UpDate  :  2018-09-15
+ * | About   :  展示在UnknowClang中撰寫SubProgram
+ * |
+ * 
+ */
 Main()
   StartCodeArea
     MakeIntType ToCountNumber assign 2;
-
 
     ToCountNumber assign PrintAdd 
       StartArgument ToCountNumber , 19 EndArgument;
@@ -23,7 +33,19 @@ Main()
     Re0;
   EndCodeArea
 
-/* SubProgram */
+/*
+ *
+ * |--------------------------------------------
+ * | [SubProgram] PrintAdd Function
+ * |--------------------------------------------
+ * | Name    :  PrintAdd
+ * | Writer  :  Lian0123
+ * | UpDate  :  2018-09-15
+ * | Return  :  a+b結果(int)
+ * | About   :  Print a+b結果 並回傳
+ * |
+ * 
+ */
 int PrintAdd 
   StartParameter int a , int b EndParameter 
   StartCodeArea
@@ -32,7 +54,19 @@ int PrintAdd
     Re tmp;
   EndCodeArea
 
-/* SubProgram */
+/*
+ *
+ * |--------------------------------------------
+ * | [SubProgram] PrintSub Function
+ * |--------------------------------------------
+ * | Name    :  PrintSub
+ * | Writer  :  Lian0123
+ * | UpDate  :  2018-09-15
+ * | Return  :  a-b結果(int)
+ * | About   :  Print a-b結果 並回傳
+ * |
+ * 
+ */
 int PrintSub 
   StartParameter int a , int b EndParameter 
   StartCodeArea
