@@ -137,6 +137,7 @@
   #define NotArgument ()
   #define NotParameter (void)
 
+  #define NotText ""
 
   typedef FILE* PtrFile;
   typedef int*  PtrInt;
@@ -149,6 +150,7 @@
   #define MakePtrFloatType PtrFloat
   #define MakePtrCharType ConstString
 
+
   typedef struct _LLTree_{long long Data; struct _LLTree_* RightNode; struct _LLTree_* LeftNode;}LLTree;
   typedef struct _LTree_{long Data; struct _LTree_* RightNode; struct _LTree_* LeftNode;}LTree;
   typedef struct _IntTree_{int Data; struct _IntTree_* RightNode; struct _IntTree_* LeftNode;}IntTree;
@@ -158,7 +160,7 @@
 
   typedef struct _LLList_{long long Data; struct _LLList_* NextNode;}LLList;
   typedef struct _LList_{long  Data; struct _LList_* NextNode;}LList;
-  typedef struct _IntList_{int Data; struct _IntList_* RightNode; struct _IntList_* LeftNode;}IntList;
+  typedef struct _IntList_{int Data; struct _IntList_* NextNode;}IntList;
   typedef struct _FloatList_{float Data; struct _FloatList_* NextNode;}FloattList;
   typedef struct _DoubleList_{double Data; struct _DoubleList_* NextNode;}DoubleList;
   typedef struct _CharList_{char Data; struct _CharList_* NextNode;}CharList;
@@ -169,6 +171,13 @@
   typedef struct _FloatStack_{float Data; struct _FloatStack_* NextNode;}FloatStack;
   typedef struct _DoubleStack_{double Data; struct _DoubleStack_* NextNode;}DoubleStack;
   typedef struct _CharStack_{char Data; struct _CharStack_* NextNode;}CharStack;
+
+  typedef struct _LLList2_{long long Data; struct _LLList2_* BeforeNode; struct _LLList2_* NextNode;}LLList2;
+  typedef struct _LList2_{long  Data; struct _LList2_* BeforeNode; struct _LList2_* NextNode;}LList2;
+  typedef struct _IntList2_{int Data; struct _IntList2_* BeforeNode; struct _IntList2_* NextNode}IntList2;
+  typedef struct _FloatList2_{float Data; struct _FloatList2_* BeforeNode; struct _FloatList2_* NextNode;}FloattList2;
+  typedef struct _DoubleList2_{double Data; struct _DoubleList2_* BeforeNode;; struct _DoubleList2_* NextNode;}DoubleList2;
+  typedef struct _CharList2_{char Data; struct _CharList2_* BeforeNode;; struct _CharList2_* NextNode;}CharList2;
   
   #define DefLLTree(Name) LLTree Name
   #define DefLTree(Name) LTree Name
@@ -194,7 +203,7 @@
       MakeIntType  GetOverFlow;
       MakeIntType  CounterI;
 
-      if(OutputText equal "")
+      if(OutputText equal NotText)
         StartCodeArea
           OutputText assign "請數入數字" ;
         EndCodeArea
@@ -250,7 +259,7 @@
         else
           StartCodeArea
             IsIntData assign false;
-            printf("輸入錯誤，數字輸入範圍為：-2^%ld -1 ~ 2^%ld -1 \n",sizeof(int)*8,sizeof(int)*8);
+            printf("輸入錯誤，數字輸入範圍為：-2147483647 ~ 2147483647 \n");
           EndCodeArea
 
       EndCodeArea
