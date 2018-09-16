@@ -174,7 +174,7 @@
 
   typedef struct _LLList2_{long long Data; struct _LLList2_* BeforeNode; struct _LLList2_* NextNode;}LLList2;
   typedef struct _LList2_{long  Data; struct _LList2_* BeforeNode; struct _LList2_* NextNode;}LList2;
-  typedef struct _IntList2_{int Data; struct _IntList2_* BeforeNode; struct _IntList2_* NextNode}IntList2;
+  typedef struct _IntList2_{int Data; struct _IntList2_* BeforeNode; struct _IntList2_* NextNode;}IntList2;
   typedef struct _FloatList2_{float Data; struct _FloatList2_* BeforeNode; struct _FloatList2_* NextNode;}FloattList2;
   typedef struct _DoubleList2_{double Data; struct _DoubleList2_* BeforeNode;; struct _DoubleList2_* NextNode;}DoubleList2;
   typedef struct _CharList2_{char Data; struct _CharList2_* BeforeNode;; struct _CharList2_* NextNode;}CharList2;
