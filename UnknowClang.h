@@ -8,11 +8,7 @@
   #include<iso646.h>
   #include<ctype.h>
 
-  #ifdef ImportBasic
-    #include<stdio.h>
-    #include<stblib.h>
-  #endif
-
+  /*字串處理相關的庫*/
   #ifdef ImportString
     #include<string.h>
     #include<strings.h>
@@ -22,47 +18,55 @@
     #include<wctype.h>
   #endif
 
+  /*Argument相關的庫*/
   #ifdef ImportStdArg
     #include<stdarg.h>
   #endif
 
+  /*BeBug常用的庫*/
   #ifdef ImportDeBug
     #include<assert.h>
     #include<errno.h>
   #endif
 
+  /*數學相關的庫*/
   #ifdef ImportMath
     #include<math.h>
     #include<complex.h>
   #endif
 
+  /*時間相關的庫*/
   #ifdef ImportTime
     #include<time.h>
     #include<sys/time.h>
-    #include<ys/times.h>
+    #include<sys/times.h>
   #endif
 
+  /*資料型別相關的庫*/
   #ifdef ImportType
     #include<sys/types.h>
     #include<limit.h>
     #include<ctype.h>
   #endif
 
+  /*轉編碼的庫*/
   #ifdef ImportChangeCode
     #include<iconv.h>
   #endif
 
+  /*使用者相關的庫*/
   #ifdef ImportUsr
     #include<grp.h>
     #include<pwd.h>
   #endif
 
+  /*語言語系相關的庫*/
   #ifdef ImportLang
     #include<langinfo.h>
     #include<locale.h>
   #endif
 
-
+  /*檔案系統相關的庫*/
   #ifdef ImportFileSystem
     #include<dirent.h>
     #include<fcntl.h>
@@ -73,6 +77,7 @@
     #include<unistd.h> 
   #endif
 
+  /*基本Main Function中常用功能的簡化巨集*/
   #define BasicMain(argc,argv) (int main(int argc, char* argv[]))
   #define Main() int main(void)
   #define Re return
@@ -80,45 +85,55 @@
   #define endMain puts("\n--END Program--\n");Re0
   #define Exit exit(-1) 
 
+  /*以呼叫Bash實現功能的巨集*/
   #define SystemPause system("printf \'Press Enter key to continue...\' &&  read TheEnterMacro")
   #define SystemReboot() system("reboot")
 
+  /*簡化迴圈的巨集*/
   #define Loop(m,n)  for(int i=m;i<n;i++)
   #define Loop2(m,n,o,p) for(int i=m;i<n;i++) for(int j=o;j<p;j++)
   #define InfiniteLoop while(1)
   #define EOFLoop(Cha) while(Cha!=EOF)
 
+  /*資料輸出用的巨集*/
+  #define Print(Str) printf(Str)
   #define PrintN(Str,Num) printf("%s : %d\n",Str,Num)
   #define PrintC(Str,Cha) printf("%s : \'%c\'\n",Str,Cha)
   #define PrintF(Str,Fol) printf("%s : %f\n",Str,Fol)
   #define PrintS(str) printf("\'%s\'\n",str)
   #define PrintSS(Str,str) printf("%s : \'%s\'\n",Str,str)
 
+  /*簡化取得資料的巨集*/
   #define ScanfN(Num) scanf("%d",&Num)
   #define ScanfC(Cha) scanf("%c",&Cha)
   #define ScanfF(Fol) scanf("%f",&Fol)
   #define ScanfS(str) scanf("%s",str)
 
-
+  /*位元移動的巨集*/
   #define BitMoveLeftBySet(Num,BitSum) Num=Num<<BitSum
   #define BitMoveRightBySet(Num,BitSum) Num=Num>>BitSum
   #define BitMoveLeft(Num) Num=Num<<1
   #define BitMoveRight(Num) Num=Num>>1
   
+  /*生成陣列的巨集*/
   #define SetIntArray(Sum,IntName) int IntName[Sum]
   #define SetFloatArray(Sum,FloatName) float FloatName[Sum]
   #define SetString(Sum,StringName) char StringName[Sum]
   #define SetDoubleArray(Sum,DoubleName) double DoubleName[Sum]
   #define SetMyType(Sum,TypeName,Type) Type TypeName[Sum]
 
+  /*簡化建立結構的巨集*/
   #define SetStruct(StructName) struct StructName
 
+  /*提昇語法用的資料型別宣告巨集*/
+  #define MakeShortType short
   #define MakeIntType int
   #define MakeCharType char
   #define MakeFLoatType float
   #define MakeDoubleType double
   #define MakeBoolType bool
 
+  /*提昇語法的運算子*/
   #define assign =
   #define equal ==
   #define less_than <
@@ -129,28 +144,33 @@
   #define StartCodeArea {
   #define EndCodeArea }
 
+  /*提昇自定義function的矚目度的巨集*/
   #define StartArgument (
   #define EndArgument )
   #define StartParameter (
   #define EndParameter )
 
+  /*簡化無Argument或Parameter敘述的巨集*/
   #define NotArgument ()
   #define NotParameter (void)
 
+  /*增加空字串描述的巨集*/
   #define NotText ""
 
+  /*指標型別定義*/
   typedef FILE* PtrFile;
   typedef int*  PtrInt;
   typedef double* PtrDouble;
   typedef float* PtrFloat;
   typedef char* ConstString;
 
+  /*提昇對指標物件語意宣告的巨集*/
   #define MakePtrIntType PtrInt
   #define MakePtrDoubleType PtrDouble
   #define MakePtrFloatType PtrFloat
   #define MakePtrCharType ConstString
 
-
+  /*Tree資料結構定義*/
   typedef struct _LLTree_{long long Data; struct _LLTree_* RightNode; struct _LLTree_* LeftNode;}LLTree;
   typedef struct _LTree_{long Data; struct _LTree_* RightNode; struct _LTree_* LeftNode;}LTree;
   typedef struct _IntTree_{int Data; struct _IntTree_* RightNode; struct _IntTree_* LeftNode;}IntTree;
@@ -158,6 +178,7 @@
   typedef struct _DoubleTree_{double Data; struct _DoubleTree_* RightNode; struct _DoubleTree_* LeftNode;}DoubleTree;
   typedef struct _CharTree_{char Data; struct _CharTree_* RightNode; struct _CharTree_* LeftNode;}CharTree;
 
+  /*List資料結構定義*/
   typedef struct _LLList_{long long Data; struct _LLList_* NextNode;}LLList;
   typedef struct _LList_{long  Data; struct _LList_* NextNode;}LList;
   typedef struct _IntList_{int Data; struct _IntList_* NextNode;}IntList;
@@ -165,6 +186,7 @@
   typedef struct _DoubleList_{double Data; struct _DoubleList_* NextNode;}DoubleList;
   typedef struct _CharList_{char Data; struct _CharList_* NextNode;}CharList;
  
+  /*Stack資料結構定義*/
   typedef struct _LLStack_{long long Data; struct _LLStack_* NextNode;}LLStack;
   typedef struct _LStack_{long Data; struct _LStack_* NextNode;}LStack;
   typedef struct _IntStack_{int Data; struct _IntStack_* NextNode;}IntStack;
@@ -172,6 +194,7 @@
   typedef struct _DoubleStack_{double Data; struct _DoubleStack_* NextNode;}DoubleStack;
   typedef struct _CharStack_{char Data; struct _CharStack_* NextNode;}CharStack;
 
+  /*雙向鏈表資料結構定義*/
   typedef struct _LLList2_{long long Data; struct _LLList2_* BeforeNode; struct _LLList2_* NextNode;}LLList2;
   typedef struct _LList2_{long  Data; struct _LList2_* BeforeNode; struct _LList2_* NextNode;}LList2;
   typedef struct _IntList2_{int Data; struct _IntList2_* BeforeNode; struct _IntList2_* NextNode;}IntList2;
@@ -179,6 +202,7 @@
   typedef struct _DoubleList2_{double Data; struct _DoubleList2_* BeforeNode;; struct _DoubleList2_* NextNode;}DoubleList2;
   typedef struct _CharList2_{char Data; struct _CharList2_* BeforeNode;; struct _CharList2_* NextNode;}CharList2;
   
+  /*增強對建立Tree的語意*/
   #define DefLLTree(Name) LLTree Name
   #define DefLTree(Name) LTree Name
   #define DefIntTree(Name) IntTree Name
@@ -186,15 +210,17 @@
   #define DefDoubleTree(Name) LTree Name
   #define DefCharTree(Name) LTree Name
   
+  /*設定節點資料的巨集*/
   #define SetNode(Node,InData) Node.Data = InData
 
+  /*定義指標位置的巨集*/  
   #define SetTreeLR(Node,InPtrL,InPtrR) Node->LeftNode=&InPtrL; Node->RightNode=&InPtrR
   #define SetTreeLeft(Node,InPtrL) Node->LeftNode=&InPtrL
   #define SetTreeRight(Node,InPtrR) Node->RightNode=&InPtrR
   #define SetListNext(Node,NextPtr) Node->NextNode=&NextPtr
   #define SetStackNext(Node,NextPtr) Node->NextNode=&NextPtr
 
-
+  /*安全取得Int資料的程式*/
   int GetTntTypeScanf
     StartParameter ConstString OutputText EndParameter
     StartCodeArea
