@@ -40,6 +40,27 @@
     #include<time.h>
     #include<sys/time.h>
     #include<sys/times.h>
+
+    /* 全域時間變數 */
+    double TimerSTART = 0,
+           TimerEND = 0;
+
+
+    /* 設定計時器 */
+    void SetTimer(void){
+      TimerSTART = clock();
+    }
+
+    /* 結束計時器 */
+    void EndTimer(void){
+      TimerEND = clock();
+    }
+
+    /* 計算時間 */
+    double GetCountTimer{
+         return (TimerEND - TimerSTART) / CLOCKS_PER_SEC);
+    }
+
   #endif
 
   /*資料型別相關的庫*/
@@ -78,7 +99,7 @@
   #endif
 
   /*基本Main Function中常用功能的簡化巨集*/
-  #define BasicMain(argc,argv) (int main(int argc, char* argv[]))
+  #define BasicMain() int main(int argc, char* argv[])
   #define Main() int main(void)
   #define Re return
   #define Re0 return 0
@@ -99,6 +120,7 @@
   #define Print(Str) printf(Str)
   #define PrintN(Str,Num) printf("%s : %d\n",Str,Num)
   #define PrintC(Str,Cha) printf("%s : \'%c\'\n",Str,Cha)
+  #define PrintD(Str,Dou) printf("%s : \'%c\'\n",Str,Dou)
   #define PrintF(Str,Fol) printf("%s : %f\n",Str,Fol)
   #define PrintS(str) printf("\'%s\'\n",str)
   #define PrintSS(Str,str) printf("%s : \'%s\'\n",Str,str)
@@ -106,6 +128,7 @@
   /*簡化取得資料的巨集*/
   #define ScanfN(Num) scanf("%d",&Num)
   #define ScanfC(Cha) scanf("%c",&Cha)
+  #define ScanfC(Dou) scanf("%g",&Dou)
   #define ScanfF(Fol) scanf("%f",&Fol)
   #define ScanfS(str) scanf("%s",str)
 
