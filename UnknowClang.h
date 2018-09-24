@@ -56,7 +56,7 @@
       TimerEND = clock();
     }
 
-    /* 計算時間 */
+    /* 取得計算時間 */
     double GetCountTimer{
          return (TimerEND - TimerSTART) / CLOCKS_PER_SEC);
     }
@@ -128,7 +128,7 @@
   /*簡化取得資料的巨集*/
   #define ScanfN(Num) scanf("%d",&Num)
   #define ScanfC(Cha) scanf("%c",&Cha)
-  #define ScanfC(Dou) scanf("%g",&Dou)
+  #define ScanfD(Dou) scanf("%g",&Dou)
   #define ScanfF(Fol) scanf("%f",&Fol)
   #define ScanfS(str) scanf("%s",str)
 
@@ -166,6 +166,7 @@
   #define greater_equal >=
   #define StartCodeArea {
   #define EndCodeArea }
+  #define mod %
 
   /*提昇自定義function的矚目度的巨集*/
   #define StartArgument (
@@ -222,9 +223,18 @@
   typedef struct _LList2_{long  Data; struct _LList2_* BeforeNode; struct _LList2_* NextNode;}LList2;
   typedef struct _IntList2_{int Data; struct _IntList2_* BeforeNode; struct _IntList2_* NextNode;}IntList2;
   typedef struct _FloatList2_{float Data; struct _FloatList2_* BeforeNode; struct _FloatList2_* NextNode;}FloattList2;
-  typedef struct _DoubleList2_{double Data; struct _DoubleList2_* BeforeNode;; struct _DoubleList2_* NextNode;}DoubleList2;
-  typedef struct _CharList2_{char Data; struct _CharList2_* BeforeNode;; struct _CharList2_* NextNode;}CharList2;
+  typedef struct _DoubleList2_{double Data; struct _DoubleList2_* BeforeNode; struct _DoubleList2_* NextNode;}DoubleList2;
+  typedef struct _CharList2_{char Data; struct _CharList2_* BeforeNode; struct _CharList2_* NextNode;}CharList2;
   
+  /*圖*/
+  typedef struct _LLGraph1_{long long Data; struct _LLGraph1_* ArrayNext; struct _LLGraph1_* DataNext;}LLGraph1;
+  typedef struct _LGraph1_{long Data; struct _LGraph1_* ArrayNext; struct _LGraph1_* DataNext;}LGraph1;
+  typedef struct _IntGraph1_{int Data; struct _IntGraph1_* ArrayNext; struct _IntGraph1_* DataNext;}IntGraph1;
+  typedef struct _FloatGraph1_{float Data; struct _FloatGraph1_* ArrayNext; struct _FloatGraph1_* DataNext;}FloatGraph1;
+  typedef struct _DoubleGraph1_{double Data; struct _DoubleGraph1_* ArrayNext; struct _DoubleGraph1_* DataNext;}DoubleGraph1;
+  typedef struct _CharGraph1_{char Data; struct _CharGraph1_* ArrayNext; struct _CharGraph1_* DataNext;}CharGraph1;
+
+
   /*增強對建立Tree的語意*/
   #define DefLLTree(Name) LLTree Name
   #define DefLTree(Name) LTree Name
