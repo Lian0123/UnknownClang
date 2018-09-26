@@ -1,3 +1,14 @@
+/*
+ *
+ * |-----------------------------------------------------
+ * | [Header File] UnknowClang
+ * |-----------------------------------------------------
+ * | Writer  :  Lian0123
+ * | Version :  0.0.0.13
+ * |
+ * 
+ */
+
 #ifndef UNKONW_CLANG_H
   #define UNKONW_CLANG_H 1
 
@@ -186,6 +197,7 @@
   typedef int*  PtrInt;
   typedef double* PtrDouble;
   typedef float* PtrFloat;
+  typedef char* PtrChar;
   typedef char* ConstString;
 
   /*提昇對指標物件語意宣告的巨集*/
@@ -252,6 +264,29 @@
   #define SetTreeRight(Node,InPtrR) Node->RightNode=&InPtrR
   #define SetListNext(Node,NextPtr) Node->NextNode=&NextPtr
   #define SetStackNext(Node,NextPtr) Node->NextNode=&NextPtr
+
+  /*測試Tree是否為空*/
+  #define IsTreeNull(Type,TreeNode,CallBackBool) \
+    if(TreeNode.LeftNode equal NULL and TreeNode.RightNode equal NULL) \
+      CallBackBool assign true; \
+    else \
+      CallBackBool assign false 
+
+  /*測試Stack是否為空*/
+  #define IsStackNull(StackType,StackNode,CallBackBool) \
+    if(StackNode.NextNode equal NULL) \
+      CallBackBool assign true; \
+    else \
+      CallBackBool assign false 
+
+  /*測試List是否為空*/
+  #define IsListNull(Type,ListNode,CallBackBool) \
+    if(ListNode.NextNode equal NULL) \
+      CallBackBool assign true; \
+    else \
+      CallBackBool assign false 
+
+
 
   /*安全取得Int資料的程式*/
   int GetTntTypeScanf
