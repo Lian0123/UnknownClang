@@ -1,4 +1,4 @@
-#include "../UnknowClang.h"
+#include "../UnknownClang.h"
 
 /* SubProgram Define  */
 int PrintAdd
@@ -15,7 +15,7 @@ int PrintSub
  * | Name    :  Main
  * | Writer  :  Lian0123
  * | UpDate  :  2018-09-15
- * | About   :  展示在UnknowClang中撰寫SubProgram
+ * | About   :  展示在UnknownClang中撰寫SubProgram
  * |
  * 
  */

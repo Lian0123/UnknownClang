@@ -1,4 +1,4 @@
-#include "../UnknowClang.h"
+#include "../UnknownClang.h"
 
 /*
  *
@@ -8,7 +8,7 @@
  * | Name    :  Main
  * | Writer  :  Lian0123
  * | UpDate  :  2018-09-12
- * | About   :  展示UnknowClang執行位元左位移
+ * | About   :  展示UnknownClang執行位元左位移
  * |
  * 
  */

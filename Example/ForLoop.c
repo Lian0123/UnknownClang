@@ -1,4 +1,4 @@
-#include "../UnknowClang.h"
+#include "../UnknownClang.h"
 
 /*
  *
@@ -8,7 +8,7 @@
  * | Name    :  Main
  * | Writer  :  Lian0123
  * | UpDate  :  2018-09-12
- * | About   :  展示在UnknowClang中使用loop將for(int i=n;i<m;i++)的功能
+ * | About   :  展示在UnknownClang中使用loop將for(int i=n;i<m;i++)的功能
  * |
  * 
  */
