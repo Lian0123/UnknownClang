@@ -362,4 +362,4 @@
       Re atoi(InScanfData);
     EndCodeArea
 
-#endif //UNKONW_CLANG_H
+#endif //UNKONWN_CLANG_H
