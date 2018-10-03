@@ -4,7 +4,7 @@
  * | [Header File] UnknownClang
  * |-----------------------------------------------------
  * | Writer  :  Lian0123
- * | Version :  0.0.0.13
+ * | Version :  0.0.0.14
  * |
  * 
  */
@@ -79,6 +79,8 @@
     #include<sys/types.h>
     #include<limit.h>
     #include<ctype.h>
+
+    #define aa int
   #endif
 
   /*轉編碼的庫*/
@@ -166,6 +168,16 @@
   #define MakeFLoatType float
   #define MakeDoubleType double
   #define MakeBoolType bool
+
+  #define MakeInt8Type int8_t 
+  #define MakeInt8Type int16_t 
+  #define MakeInt32Type int32_t 
+  #define MakeInt64Type int64_t 
+
+  #define MakeUnsignedInt8Type u_int8_t 
+  #define MakeUnsignedInt16Type u_int16_t 
+  #define MakeUnsignedInt32Type u_int32_t
+  #define MakeUnsignedInt64ype u_int64_t
 
   /*提昇語法的運算子*/
   #define assign =
@@ -286,80 +298,7 @@
     else \
       CallBackBool assign false 
 
-
-
-  /*安全取得Int資料的程式*/
-  int GetTntTypeScanf
-    StartParameter ConstString OutputText EndParameter
-    StartCodeArea
-      MakeCharType InScanfData[50];
-      MakeBoolType IsIntData;
-      MakeIntType  GetOverFlow;
-      MakeIntType  CounterI;
-
-      if(OutputText equal NotText)
-        StartCodeArea
-          OutputText assign "請數入數字" ;
-        EndCodeArea
-      
-      do
-      StartCodeArea
-
-        IsIntData assign true;
-        CounterI  assign 0;
-
-        printf("%s：",OutputText);
-        ScanfS(InScanfData);
-        
-        if(InScanfData[0] equal '-')
-          StartCodeArea
-            GetOverFlow assign strcmp(InScanfData,"-2147483648");
-
-            if(strlen(InScanfData) less_than 11)
-              StartCodeArea
-                GetOverFlow assign -1;
-              EndCodeArea
-
-            CounterI=1;
-          EndCodeArea
-
-        else
-          StartCodeArea
-            GetOverFlow assign strcmp(InScanfData,"2147483648");
-
-            if(strlen(InScanfData) less_than 10)
-              StartCodeArea
-                GetOverFlow assign -1;
-              EndCodeArea
-
-          EndCodeArea
-
-        if(GetOverFlow less_than 0)
-          StartCodeArea
-            Loop(CounterI,strlen(InScanfData))
-              StartCodeArea
-
-                if(InScanfData[CounterI] greater_than 57 or InScanfData[CounterI] less_than 48)
-                  StartCodeArea
-                    IsIntData assign false;
-                    printf("輸入錯誤，需輸入十進位數字而非文字\n");
-                    break;
-                  EndCodeArea
-
-              EndCodeArea
-
-          EndCodeArea
-
-        else
-          StartCodeArea
-            IsIntData assign false;
-            printf("輸入錯誤，數字輸入範圍為：-2147483647 ~ 2147483647 \n");
-          EndCodeArea
-
-      EndCodeArea
-        while(!IsIntData);
-      
-      Re atoi(InScanfData);
-    EndCodeArea
+  /*[尚未測試]匿名置換*/
+  #define PtrSWAP(A,B) \ ({ typeof(A) tmp assign B; B assign A; A assign B; })
 
 #endif //UNKONWN_CLANG_H
