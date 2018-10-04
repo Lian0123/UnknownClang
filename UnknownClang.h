@@ -199,7 +199,8 @@
 
   /*簡化無Argument或Parameter敘述的巨集*/
   #define NotArgument ()
-  #define NotParameter (void)
+  #define NotParameter ()
+  #define VoidParameter (void)
 
   /*增加空字串描述的巨集*/
   #define NotText ""
