@@ -170,7 +170,7 @@
   #define MakeBoolType bool
 
   #define MakeInt8Type int8_t 
-  #define MakeInt8Type int16_t 
+  #define MakeInt16Type int16_t 
   #define MakeInt32Type int32_t 
   #define MakeInt64Type int64_t 
 
@@ -299,7 +299,23 @@
     else \
       CallBackBool assign false 
 
-  /*[尚未測試]匿名置換*/
+  /*[尚未測試]匿名置換*//*
   #define PtrSWAP(A,B) \ ({ typeof(A) tmp assign B; B assign A; A assign B; })
 
+
+  //typedef void (*PtrFunc)();
+  ConstString GlobalFunction[] assign {"AA","BB"};
+
+  void FunctionLoop(ConstString a)
+    StartCodeArea
+      void (*PtrFunc)();
+      PtrFunc assign GlobalFunction[0];
+      InfiniteLoop
+        StartCodeArea
+          if(a equal )
+          StartCodeArea
+          EndCodeArea
+        EndCodeArea
+    EndCodeArea
+*/
 #endif //UNKONWN_CLANG_H
