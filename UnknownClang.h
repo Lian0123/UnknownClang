@@ -191,6 +191,43 @@
   #define EndCodeArea }
   #define mod %
 
+
+  #define SetBlock {
+  #define EndBlock }
+
+  //代碼區域等級
+  #pragma CodeBlock
+
+    #define SetBlock_HightLevel {
+    #define EndBlock_HightLevel }
+    #define SetBlock_NormalLevel {
+    #define EndBlock_NormalLevel }
+    #define SetBlock_LowLevel {
+    #define EndBlock_LowLevel }
+
+    #define SetBlock0 {
+    #define EndBlock0 }
+    #define SetBlock1 {
+    #define EndBlock1 }
+    #define SetBlock2 {
+    #define EndBlock2 }
+    #define SetBlock3 {
+    #define EndBlock3 }
+    #define SetBlock4 {
+    #define EndBlock4 }
+    #define SetBlock5 {
+    #define EndBlock5 }
+    #define SetBlock6 {
+    #define EndBlock6 }
+    #define SetBlock7 {
+    #define EndBlock7 }
+    #define SetBlock8 {
+    #define EndBlock8 }
+    #define SetBlock9 {
+    #define EndBlock9 }
+
+  #pragma endregion
+
   /*提昇自定義function的矚目度的巨集*/
   #define StartArgument (
   #define EndArgument )
@@ -205,103 +242,111 @@
   /*增加空字串描述的巨集*/
   #define NotText ""
 
-  /*指標型別定義*/
-  typedef FILE* PtrFile;
-  typedef int*  PtrInt;
-  typedef double* PtrDouble;
-  typedef float* PtrFloat;
-  typedef char* PtrChar;
-  typedef char* ConstString;
+  #ifndef UNKNOWNCPP_H
+    /*指標型別定義*/
+    typedef FILE* PtrFile;
+    typedef int*  PtrInt;
+    typedef double* PtrDouble;
+    typedef float* PtrFloat;
+    typedef char* PtrChar;
+    typedef char* ConstString;
 
-  /*提昇對指標物件語意宣告的巨集*/
-  #define MakePtrIntType PtrInt
-  #define MakePtrDoubleType PtrDouble
-  #define MakePtrFloatType PtrFloat
-  #define MakePtrCharType ConstString
+    /*提昇對指標物件語意宣告的巨集*/
+    #define MakePtrIntType PtrInt
+    #define MakePtrDoubleType PtrDouble
+    #define MakePtrFloatType PtrFloat
+    #define MakePtrCharType ConstString
 
-  /*Tree資料結構定義*/
-  typedef struct _LLTree_{long long Data; struct _LLTree_* RightNode; struct _LLTree_* LeftNode;}LLTree;
-  typedef struct _LTree_{long Data; struct _LTree_* RightNode; struct _LTree_* LeftNode;}LTree;
-  typedef struct _IntTree_{int Data; struct _IntTree_* RightNode; struct _IntTree_* LeftNode;}IntTree;
-  typedef struct _FloatTree_{float Data; struct _FloatTree_* RightNode; struct _FloatTree_* LeftNode;}FloatTree;
-  typedef struct _DoubleTree_{double Data; struct _DoubleTree_* RightNode; struct _DoubleTree_* LeftNode;}DoubleTree;
-  typedef struct _CharTree_{char Data; struct _CharTree_* RightNode; struct _CharTree_* LeftNode;}CharTree;
+  #endif // UNKNOWNCPP_H
 
-  /*List資料結構定義*/
-  typedef struct _LLList_{long long Data; struct _LLList_* NextNode;}LLList;
-  typedef struct _LList_{long  Data; struct _LList_* NextNode;}LList;
-  typedef struct _IntList_{int Data; struct _IntList_* NextNode;}IntList;
-  typedef struct _FloatList_{float Data; struct _FloatList_* NextNode;}FloattList;
-  typedef struct _DoubleList_{double Data; struct _DoubleList_* NextNode;}DoubleList;
-  typedef struct _CharList_{char Data; struct _CharList_* NextNode;}CharList;
- 
-  /*Stack資料結構定義*/
-  typedef struct _LLStack_{long long Data; struct _LLStack_* NextNode;}LLStack;
-  typedef struct _LStack_{long Data; struct _LStack_* NextNode;}LStack;
-  typedef struct _IntStack_{int Data; struct _IntStack_* NextNode;}IntStack;
-  typedef struct _FloatStack_{float Data; struct _FloatStack_* NextNode;}FloatStack;
-  typedef struct _DoubleStack_{double Data; struct _DoubleStack_* NextNode;}DoubleStack;
-  typedef struct _CharStack_{char Data; struct _CharStack_* NextNode;}CharStack;
+  #ifndef UNKNOWNCPP_H
+    /*Tree資料結構定義*/
+    typedef struct _LLTree_{long long Data; struct _LLTree_* RightNode; struct _LLTree_* LeftNode;}LLTree;
+    typedef struct _LTree_{long Data; struct _LTree_* RightNode; struct _LTree_* LeftNode;}LTree;
+    typedef struct _IntTree_{int Data; struct _IntTree_* RightNode; struct _IntTree_* LeftNode;}IntTree;
+    typedef struct _FloatTree_{float Data; struct _FloatTree_* RightNode; struct _FloatTree_* LeftNode;}FloatTree;
+    typedef struct _DoubleTree_{double Data; struct _DoubleTree_* RightNode; struct _DoubleTree_* LeftNode;}DoubleTree;
+    typedef struct _CharTree_{char Data; struct _CharTree_* RightNode; struct _CharTree_* LeftNode;}CharTree;
 
-  /*雙向鏈表資料結構定義*/
-  typedef struct _LLList2_{long long Data; struct _LLList2_* BeforeNode; struct _LLList2_* NextNode;}LLList2;
-  typedef struct _LList2_{long  Data; struct _LList2_* BeforeNode; struct _LList2_* NextNode;}LList2;
-  typedef struct _IntList2_{int Data; struct _IntList2_* BeforeNode; struct _IntList2_* NextNode;}IntList2;
-  typedef struct _FloatList2_{float Data; struct _FloatList2_* BeforeNode; struct _FloatList2_* NextNode;}FloattList2;
-  typedef struct _DoubleList2_{double Data; struct _DoubleList2_* BeforeNode; struct _DoubleList2_* NextNode;}DoubleList2;
-  typedef struct _CharList2_{char Data; struct _CharList2_* BeforeNode; struct _CharList2_* NextNode;}CharList2;
+    /*List資料結構定義*/
+    typedef struct _LLList_{long long Data; struct _LLList_* NextNode;}LLList;
+    typedef struct _LList_{long  Data; struct _LList_* NextNode;}LList;
+    typedef struct _IntList_{int Data; struct _IntList_* NextNode;}IntList;
+    typedef struct _FloatList_{float Data; struct _FloatList_* NextNode;}FloattList;
+    typedef struct _DoubleList_{double Data; struct _DoubleList_* NextNode;}DoubleList;
+    typedef struct _CharList_{char Data; struct _CharList_* NextNode;}CharList;
   
-  /*圖*/
-  typedef struct _LLGraph1_{long long Data; struct _LLGraph1_* ArrayNext; struct _LLGraph1_* DataNext;}LLGraph1;
-  typedef struct _LGraph1_{long Data; struct _LGraph1_* ArrayNext; struct _LGraph1_* DataNext;}LGraph1;
-  typedef struct _IntGraph1_{int Data; struct _IntGraph1_* ArrayNext; struct _IntGraph1_* DataNext;}IntGraph1;
-  typedef struct _FloatGraph1_{float Data; struct _FloatGraph1_* ArrayNext; struct _FloatGraph1_* DataNext;}FloatGraph1;
-  typedef struct _DoubleGraph1_{double Data; struct _DoubleGraph1_* ArrayNext; struct _DoubleGraph1_* DataNext;}DoubleGraph1;
-  typedef struct _CharGraph1_{char Data; struct _CharGraph1_* ArrayNext; struct _CharGraph1_* DataNext;}CharGraph1;
+    /*Stack資料結構定義*/
+    typedef struct _LLStack_{long long Data; struct _LLStack_* NextNode;}LLStack;
+    typedef struct _LStack_{long Data; struct _LStack_* NextNode;}LStack;
+    typedef struct _IntStack_{int Data; struct _IntStack_* NextNode;}IntStack;
+    typedef struct _FloatStack_{float Data; struct _FloatStack_* NextNode;}FloatStack;
+    typedef struct _DoubleStack_{double Data; struct _DoubleStack_* NextNode;}DoubleStack;
+    typedef struct _CharStack_{char Data; struct _CharStack_* NextNode;}CharStack;
 
+    /*雙向鏈表資料結構定義*/
+    typedef struct _LLList2_{long long Data; struct _LLList2_* BeforeNode; struct _LLList2_* NextNode;}LLList2;
+    typedef struct _LList2_{long  Data; struct _LList2_* BeforeNode; struct _LList2_* NextNode;}LList2;
+    typedef struct _IntList2_{int Data; struct _IntList2_* BeforeNode; struct _IntList2_* NextNode;}IntList2;
+    typedef struct _FloatList2_{float Data; struct _FloatList2_* BeforeNode; struct _FloatList2_* NextNode;}FloattList2;
+    typedef struct _DoubleList2_{double Data; struct _DoubleList2_* BeforeNode; struct _DoubleList2_* NextNode;}DoubleList2;
+    typedef struct _CharList2_{char Data; struct _CharList2_* BeforeNode; struct _CharList2_* NextNode;}CharList2;
+    
+    /*圖*/
+    typedef struct _LLGraph1_{long long Data; struct _LLGraph1_* ArrayNext; struct _LLGraph1_* DataNext;}LLGraph1;
+    typedef struct _LGraph1_{long Data; struct _LGraph1_* ArrayNext; struct _LGraph1_* DataNext;}LGraph1;
+    typedef struct _IntGraph1_{int Data; struct _IntGraph1_* ArrayNext; struct _IntGraph1_* DataNext;}IntGraph1;
+    typedef struct _FloatGraph1_{float Data; struct _FloatGraph1_* ArrayNext; struct _FloatGraph1_* DataNext;}FloatGraph1;
+    typedef struct _DoubleGraph1_{double Data; struct _DoubleGraph1_* ArrayNext; struct _DoubleGraph1_* DataNext;}DoubleGraph1;
+    typedef struct _CharGraph1_{char Data; struct _CharGraph1_* ArrayNext; struct _CharGraph1_* DataNext;}CharGraph1;
 
-  /*增強對建立Tree的語意*/
-  #define DefLLTree(Name) LLTree Name
-  #define DefLTree(Name) LTree Name
-  #define DefIntTree(Name) IntTree Name
-  #define DefFloatTree(Name) FloatTree Name
-  #define DefDoubleTree(Name) LTree Name
-  #define DefCharTree(Name) LTree Name
-  
-  /*設定節點資料的巨集*/
-  #define SetNode(Node,InData) Node.Data = InData
+  #endif // UNKNOWNCPP_H
 
-  /*定義指標位置的巨集*/  
-  #define SetTreeLR(Node,InPtrL,InPtrR) Node->LeftNode=&InPtrL; Node->RightNode=&InPtrR
-  #define SetTreeLeft(Node,InPtrL) Node->LeftNode=&InPtrL
-  #define SetTreeRight(Node,InPtrR) Node->RightNode=&InPtrR
-  #define SetListNext(Node,NextPtr) Node->NextNode=&NextPtr
-  #define SetStackNext(Node,NextPtr) Node->NextNode=&NextPtr
+  #ifndef UNKNOWNCPP_H
+    /*增強對建立Tree的語意*/
+    #define DefLLTree(Name) LLTree Name
+    #define DefLTree(Name) LTree Name
+    #define DefIntTree(Name) IntTree Name
+    #define DefFloatTree(Name) FloatTree Name
+    #define DefDoubleTree(Name) LTree Name
+    #define DefCharTree(Name) LTree Name
+    
+    /*設定節點資料的巨集*/
+    #define SetNode(Node,InData) Node.Data = InData
 
-  /*測試Tree是否為空*/
-  #define IsTreeNull(Type,TreeNode,CallBackBool) \
-    if(TreeNode.LeftNode equal NULL and TreeNode.RightNode equal NULL) \
-      CallBackBool assign true; \
-    else \
-      CallBackBool assign false 
+    /*定義指標位置的巨集*/  
+    #define SetTreeLR(Node,InPtrL,InPtrR) Node->LeftNode=&InPtrL; Node->RightNode=&InPtrR
+    #define SetTreeLeft(Node,InPtrL) Node->LeftNode=&InPtrL
+    #define SetTreeRight(Node,InPtrR) Node->RightNode=&InPtrR
+    #define SetListNext(Node,NextPtr) Node->NextNode=&NextPtr
+    #define SetStackNext(Node,NextPtr) Node->NextNode=&NextPtr
 
-  /*測試Stack是否為空*/
-  #define IsStackNull(StackType,StackNode,CallBackBool) \
-    if(StackNode.NextNode equal NULL) \
-      CallBackBool assign true; \
-    else \
-      CallBackBool assign false 
+    /*測試Tree是否為空*/
+    #define IsTreeNull(Type,TreeNode,CallBackBool) \
+      if(TreeNode.LeftNode equal NULL and TreeNode.RightNode equal NULL) \
+        CallBackBool assign true; \
+      else \
+        CallBackBool assign false 
 
-  /*測試List是否為空*/
-  #define IsListNull(Type,ListNode,CallBackBool) \
-    if(ListNode.NextNode equal NULL) \
-      CallBackBool assign true; \
-    else \
-      CallBackBool assign false 
+    /*測試Stack是否為空*/
+    #define IsStackNull(StackType,StackNode,CallBackBool) \
+      if(StackNode.NextNode equal NULL) \
+        CallBackBool assign true; \
+      else \
+        CallBackBool assign false 
 
-  /*[尚未測試]匿名置換*//*
+    /*測試List是否為空*/
+    #define IsListNull(Type,ListNode,CallBackBool) \
+      if(ListNode.NextNode equal NULL) \
+        CallBackBool assign true; \
+      else \
+        CallBackBool assign false 
+
+  #endif // UNKNOWNCPP_H
+
+  /*[尚未測試]匿名置換*/
+  /*
   #define PtrSWAP(A,B) \ ({ typeof(A) tmp assign B; B assign A; A assign B; })
-
 
   //typedef void (*PtrFunc)();
   ConstString GlobalFunction[] assign {"AA","BB"};
@@ -318,4 +363,5 @@
         EndCodeArea
     EndCodeArea
 */
+
 #endif //UNKONWN_CLANG_H
