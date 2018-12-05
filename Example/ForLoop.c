@@ -13,11 +13,11 @@
  * 
  */
 Main()
-  StartCodeArea
+  SetBlock
     Loop(0,10)
-      StartCodeArea
         printf("*");
-      EndCodeArea
+    
     SystemPause;
     Re0;
-  EndCodeArea
+    
+  EndBlock

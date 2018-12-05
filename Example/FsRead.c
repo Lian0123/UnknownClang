@@ -13,7 +13,7 @@
  * 
  */
 Main()
-  StartCodeArea
+  SetBlock
     PtrFile fp;
     MakeCharType ch;
     SetString(256,file);
@@ -23,21 +23,21 @@ Main()
     ScanfS(file);
 
     if((fp assign  fopen(file,"rb")) equal NULL)
-      StartCodeArea
+      SetBlock
         printf("無法開啟此檔案 \n");
         Exit;
-      EndCodeArea
+      EndBlock
 
     ch=fgetc(fp);
 
     EOFLoop(ch)
-      StartCodeArea
+      SetBlock
         printf("%c",ch);
         ch=fgetc(fp);
-      EndCodeArea
+      EndBlock
 
     printf("\n");
     fclose(fp);
     SystemPause;
 
-  EndCodeArea
+  EndBlock

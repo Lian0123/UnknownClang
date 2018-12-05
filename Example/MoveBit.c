@@ -1,4 +1,5 @@
 #include "../UnknownClang.h"
+#include "../UnknownToString.h"
 
 /*
  *
@@ -13,18 +14,17 @@
  * 
  */
 Main()
-  StartCodeArea
+  SetBlock
     MakeIntType TestNumber assign 1;
     MakeIntType MoveSum assign 0;
     
-    MoveSum assign GetTntTypeScanf 
-      StartArgument "請輸入位移數" EndArgument;
+    MoveSum assign StrToInt32("4");
 
     Loop(0,MoveSum)
-      StartCodeArea
+      SetBlock
         BitMoveLeft(TestNumber);
         PrintN("位移情況",TestNumber);
-      EndCodeArea
+      EndBlock
     SystemPause;
     Re0;
-  EndCodeArea
+  EndBlock

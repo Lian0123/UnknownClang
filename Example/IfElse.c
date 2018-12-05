@@ -1,5 +1,5 @@
 #include "../UnknownClang.h"
-
+#include "../UnknownToString.h"
 /*
  *
  * |--------------------------------------------
@@ -13,30 +13,29 @@
  * 
  */
 Main()
-  StartCodeArea
-    MakeIntType UsrNumber assign GetTntTypeScanf 
-      StartArgument "請輸入一個int範圍內的數字" EndArgument;
+  SetBlock
+    MakeIntType UsrNumber assign StrToInt32("10");
     
     if(UsrNumber%6 equal 0)
-      StartCodeArea
+      SetBlock
         printf("%d 可被6整除\n",UsrNumber);
-      EndCodeArea
+      EndBlock
 
     else if(UsrNumber%3 equal 0)
-      StartCodeArea
+      SetBlock
         printf("%d 可被3整除\n",UsrNumber);
-      EndCodeArea
+      EndBlock
 
     else if(UsrNumber%2 equal 0)
-      StartCodeArea
+      SetBlock
         printf("%d 可被2整除\n",UsrNumber);
-      EndCodeArea
+      EndBlock
 
     else
-      StartCodeArea
+      SetBlock
         printf("%d 不可被2或3整除\n",UsrNumber);
-      EndCodeArea
+      EndBlock
     
     SystemPause;
     Re0;
-  EndCodeArea
+  EndBlock

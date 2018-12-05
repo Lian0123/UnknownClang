@@ -20,18 +20,16 @@ int PrintSub
  * 
  */
 Main()
-  StartCodeArea
+  SetBlock
     MakeIntType ToCountNumber assign 2;
 
-    ToCountNumber assign PrintAdd 
-      StartArgument ToCountNumber , 19 EndArgument;
+    ToCountNumber assign PrintAdd(ToCountNumber, 19);
     
-    PrintSub
-      StartArgument ToCountNumber , 30 EndArgument;
+    PrintSub(ToCountNumber, 30);
     
     SystemPause;
     Re0;
-  EndCodeArea
+  EndBlock
 
 /*
  *
@@ -48,11 +46,11 @@ Main()
  */
 int PrintAdd 
   StartParameter int a , int b EndParameter 
-  StartCodeArea
+  SetBlock
     MakeIntType tmp assign a + b;
     PrintN("PrintAdd",tmp);
     Re tmp;
-  EndCodeArea
+  EndBlock
 
 /*
  *
@@ -69,8 +67,8 @@ int PrintAdd
  */
 int PrintSub 
   StartParameter int a , int b EndParameter 
-  StartCodeArea
+  SetBlock
     MakeIntType tmp assign a - b;
     PrintN("PrintSub",tmp);
     Re tmp;
-  EndCodeArea
+  EndBlock

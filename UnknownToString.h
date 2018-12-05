@@ -17,7 +17,7 @@
     */
     int StrToInt32
     StartParameter ConstString InputText EndParameter
-    StartCodeArea
+    SetBlock
         MakeBoolType IsIntData;
         MakeIntType  GetOverFlow;
         MakeIntType  CounterI;
@@ -26,52 +26,52 @@
         CounterI  assign 0;
         
         if(InputText[0] equal '-')
-            StartCodeArea
+            SetBlock
             GetOverFlow assign strcmp(InputText,"-2147483648");
 
             if(strlen(InputText) less_than 11)
-                StartCodeArea
+                SetBlock
                 GetOverFlow assign -1;
-                EndCodeArea
+                EndBlock
 
             CounterI=1;
             printf("負數自動修正為正數\n");
-            EndCodeArea
+            EndBlock
 
         else
-            StartCodeArea
+            SetBlock
             GetOverFlow assign strcmp(InputText,"2147483648");
 
             if(strlen(InputText) less_than 10)
-                StartCodeArea
+                SetBlock
                 GetOverFlow assign -1;
-                EndCodeArea
+                EndBlock
 
-            EndCodeArea
+            EndBlock
 
         if(GetOverFlow less_than 0)
-            StartCodeArea
+            SetBlock
             Loop(CounterI,strlen(InputText))
-                StartCodeArea
+                SetBlock
 
                 if(InputText[CounterI] greater_than 57 or InputText[CounterI] less_than 48)
-                    StartCodeArea
+                    SetBlock
                     printf("輸入錯誤，需輸入十進位數字而非文字\n");
                     Exit;
-                    EndCodeArea
+                    EndBlock
 
-                EndCodeArea
+                EndBlock
 
-            EndCodeArea
+            EndBlock
 
         else
-            StartCodeArea
+            SetBlock
             printf("輸入錯誤，數字輸入範圍為：-2147483647 ~ 2147483647 \n");
             Exit;
-            EndCodeArea
+            EndBlock
         
         Re abs(atoi(InputText));
-    EndCodeArea
+    EndBlock
   
 
 
