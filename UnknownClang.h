@@ -120,8 +120,9 @@
   #define Exit exit(-1) 
 
   /*以呼叫Bash實現功能的巨集*/
-  #define SystemPause system("printf \'Press Enter key to continue...\' &&  read TheEnterMacro")
+  #define SystemPause printf("\nPress Enter key to continue...\n");system("read TheEnterMacro")
   #define SystemReboot() system("reboot")
+  #define SystemInit() system("init 0")
 
   /*簡化迴圈的巨集*/
   #define Loop(m,n)  for(int i=m;i<n;i++)
@@ -187,42 +188,62 @@
   #define not_equal !=
   #define greater_than >
   #define greater_equal >=
-  #define StartCodeArea {
-  #define EndCodeArea }
-  #define mod %
-
-
   #define SetBlock {
   #define EndBlock }
+  #define mod %
 
   //代碼區域等級
   #pragma CodeBlock
 
+    //[代碼區塊]高等級層次代碼
     #define SetBlock_HightLevel {
     #define EndBlock_HightLevel }
+
+    //[代碼區塊]中等級層次代碼
     #define SetBlock_NormalLevel {
     #define EndBlock_NormalLevel }
+
+    //[代碼區塊]低等級層次代碼
     #define SetBlock_LowLevel {
     #define EndBlock_LowLevel }
 
+    //[代碼區塊]LEVEL0層次代碼
     #define SetBlock0 {
     #define EndBlock0 }
+
+    //[代碼區塊]LEVEL1層次代碼
     #define SetBlock1 {
     #define EndBlock1 }
+
+    //[代碼區塊]LEVEL2層次代碼
     #define SetBlock2 {
     #define EndBlock2 }
+
+    //[代碼區塊]LEVEL3層次代碼
     #define SetBlock3 {
     #define EndBlock3 }
+
+    //[代碼區塊]LEVEL4層次代碼
     #define SetBlock4 {
     #define EndBlock4 }
+
+    //[代碼區塊]LEVEL5層次代碼
     #define SetBlock5 {
     #define EndBlock5 }
+
+    //[代碼區塊]LEVEL6層次代碼
     #define SetBlock6 {
     #define EndBlock6 }
+
+    //[代碼區塊]LEVEL7層次代碼
     #define SetBlock7 {
     #define EndBlock7 }
+
+    //[代碼區塊]LEVEL8層次代碼
     #define SetBlock8 {
     #define EndBlock8 }
+
+    //[代碼區塊]LEVEL9層次代碼
     #define SetBlock9 {
     #define EndBlock9 }
 
@@ -352,16 +373,16 @@
   ConstString GlobalFunction[] assign {"AA","BB"};
 
   void FunctionLoop(ConstString a)
-    StartCodeArea
+    SetBlock
       void (*PtrFunc)();
       PtrFunc assign GlobalFunction[0];
       InfiniteLoop
-        StartCodeArea
+        SetBlock
           if(a equal )
-          StartCodeArea
-          EndCodeArea
-        EndCodeArea
-    EndCodeArea
+          SetBlock
+          EndBlock
+        EndBlock
+    EndBlock
 */
 
 #endif //UNKONWN_CLANG_H
