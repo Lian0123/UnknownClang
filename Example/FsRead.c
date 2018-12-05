@@ -28,12 +28,12 @@ Main()
         Exit;
       EndBlock
 
-    ch=fgetc(fp);
+    ch assign fgetc(fp);
 
     EOFLoop(ch)
       SetBlock
         printf("%c",ch);
-        ch=fgetc(fp);
+        ch assign fgetc(fp);
       EndBlock
 
     printf("\n");
